@@ -2,11 +2,14 @@ import os
 from email.message import EmailMessage
 import ssl
 import smtplib
+from dotenv import load_dotenv
 
 
 def send_mail(send_to, pdf_filename):
-    email_sender = "sojitrapreet0307@gmail.com"
-    email_password = "fepp oqzt xxbl kdco"
+    load_dotenv()
+
+    email_sender = os.getenv("SENDER_EMAIL")
+    email_password = os.getenv("SENDER_EMAIL_PASSWORD")
     email_receiver = send_to
 
     subject = "Your movie script is ready!"
@@ -30,6 +33,6 @@ def send_mail(send_to, pdf_filename):
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(email_sender, email_password)
-        server.sendmail(email_sender, email_receiver, em.as_string())
+        server.login(email_sender, email_password)  # type: ignore
+        server.sendmail(email_sender, email_receiver, em.as_string())  # type: ignore
         print("Email Sent")

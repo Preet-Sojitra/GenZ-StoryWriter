@@ -1,6 +1,3 @@
-import utils.text_generator as text_generator
-
-
 def generate_prompt(captions):
     # captions = ["moon", "ocean", "alien"]
     prompt = "Write a movie script involving:"
@@ -13,10 +10,3 @@ def generate_prompt(captions):
     print(prompt)
 
     return prompt
-    # mistral_prompt = text_generator.prompt_generator(prompt)
-    # ans = text_generator.call_model(mistral_prompt)
-
-    # logger.log("Story generated")
-    # print(ans)
-
-    # return ans

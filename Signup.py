@@ -25,8 +25,8 @@ if not st.session_state.header_added:
 
 
 # Input fields for signup
-username = st.text_input("Username: ")
-email = st.text_input("Email: ")
+username = str(st.text_input("Username: "))
+email = str(st.text_input("Email: "))
 password = st.text_input("Password: ", type="password")
 
 all_data = ""
@@ -51,11 +51,15 @@ if st.button("Sign Up"):
     else:
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
         new_user = pd.DataFrame(
-            {"username": [username], "email": [email], "password": [hashed_password]}
+            {
+                "username": [str(username)],
+                "email": [str(email)],
+                "password": [hashed_password],
+            }
         )
         user_data = pd.concat([all_data, new_user], ignore_index=True)  # type:ignore
         save_user_data(user_data)
         st.success("Sign-up successful! You can now login.")
 
         # Redirect to login page
-        switch_page("Login")
+        # switch_page("Login")

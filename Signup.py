@@ -1,4 +1,3 @@
-import re
 import hashlib
 import pandas as pd
 import streamlit as st
@@ -60,21 +59,3 @@ if st.button("Sign Up"):
 
         # Redirect to login page
         switch_page("Login")
-
-        # st.success("You have successfully signed up!")
-        # l.append(username)
-        # l.append(email)
-        # l.append(password)
-        # data.append(l)
-
-# Display user inputs
-# if username and email and password:
-#     st.write("Your details:")
-#     st.write(f"Username: {username}")
-#     st.write(f"Email: {email}")
-
-
-# with open("userCredentials.csv", "a+", newline="") as file:
-#     fNames = ["Username", "Email", "Password"]
-#     writer = csv.writer(file)
-#     writer.writerows(data)

@@ -4,7 +4,7 @@ import re
 
 def load_all_data():
     try:
-        all_data = pd.read_csv("userCredentials.csv")
+        all_data = pd.read_csv("../userCredentials.csv")
         return all_data
     except FileNotFoundError:
         # If the file doesn't exist yet, return an empty DataFrame with the correct columns

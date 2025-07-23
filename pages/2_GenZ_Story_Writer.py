@@ -133,13 +133,13 @@ if len(st.session_state.selected_images) > 0:
                 st.warning(captions)
 
                 prompt = generate_prompt(captions)
-                st.session_state.story = st.session_state.mistral_model.call_model(
-                    prompt
-                )
+                # st.session_state.story = st.session_state.mistral_model.call_model(
+                #     prompt
+                # )
 
                 # Below line is for testing purposes only. It calls the mock story generator. Mock story generator tries to replicate the behaviour of the mistral model. It returns a dummy story after a delay of 8 seconds. Since the mistral model takes much time to generate the story, we are using the mock story generator to replicate the behaviour of the mistral model for testing purposes. Uncomment the below line and comment the above line to use the mock story generator for testing.
 
-                # st.session_state.story = call_model(prompt)
+                st.session_state.story = call_model(prompt)
 
                 print(st.session_state.story)
 
